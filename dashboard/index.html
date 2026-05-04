@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dotfiles Manager</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+  <!-- Animated gradient background blobs -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <div class="container">
+
+    <!-- Header -->
+    <header class="glass card header">
+      <div class="header-left">
+        <span class="logo">⬡</span>
+        <h1>Dotfiles Manager</h1>
+      </div>
+      <div class="header-right">
+        <span id="statusBadge" class="badge badge-ok">● connected</span>
+        <button class="btn btn-icon" id="refreshBtn" title="Refresh">↻</button>
+      </div>
+    </header>
+
+    <!-- Stats row -->
+    <div class="stats-row">
+      <div class="glass card stat-card">
+        <div class="stat-value" id="statTotal">—</div>
+        <div class="stat-label">Total</div>
+      </div>
+      <div class="glass card stat-card">
+        <div class="stat-value" id="statApplied">—</div>
+        <div class="stat-label">Applied</div>
+      </div>
+      <div class="glass card stat-card">
+        <div class="stat-value" id="statSynced">—</div>
+        <div class="stat-label">Synced</div>
+      </div>
+      <div class="glass card stat-card">
+        <div class="stat-value" id="statMissing">—</div>
+        <div class="stat-label">Missing</div>
+      </div>
+    </div>
+
+    <!-- Action bar -->
+    <div class="glass card action-bar">
+      <button class="btn btn-primary" id="syncBtn">⟳ Pull &amp; Sync</button>
+      <button class="btn btn-success" id="applyBtn">✓ Apply All</button>
+      <button class="btn btn-ghost" id="addBtn">+ Add Dotfile</button>
+      <button class="btn btn-ghost" id="configBtn">⚙ Config</button>
+    </div>
+
+    <!-- Main content grid -->
+    <div class="content-grid">
+
+      <!-- Dotfiles list -->
+      <section class="glass card dotfiles-section">
+        <h2 class="section-title">Dotfiles</h2>
+        <div id="dotfilesList" class="dotfiles-list">
+          <div class="loader">Loading…</div>
+        </div>
+      </section>
+
+      <!-- Log / activity feed -->
+      <section class="glass card log-section">
+        <h2 class="section-title">Activity Log</h2>
+        <div id="logFeed" class="log-feed">
+          <div class="log-entry log-info">Ready.</div>
+        </div>
+      </section>
+
+    </div>
+
+  </div>
+
+  <!-- Modal — Add Dotfile -->
+  <div id="addModal" class="modal-overlay hidden">
+    <div class="glass card modal">
+      <h2>Add Dotfile</h2>
+      <label>Name
+        <input type="text" id="addName" placeholder="e.g. vimrc" />
+      </label>
+      <label>Source path
+        <input type="text" id="addSource" placeholder="/home/user/.dotfiles/vimrc" />
+      </label>
+      <label>Target path
+        <input type="text" id="addTarget" placeholder="~/.vimrc" />
+      </label>
+      <div class="modal-actions">
+        <button class="btn btn-primary" id="addSubmitBtn">Add</button>
+        <button class="btn btn-ghost" id="addCancelBtn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal — Config -->
+  <div id="configModal" class="modal-overlay hidden">
+    <div class="glass card modal">
+      <h2>Configuration</h2>
+      <label>Remote URL
+        <input type="text" id="cfgRemoteUrl" placeholder="https://github.com/user/dotfiles.git" />
+      </label>
+      <label>Local repo path
+        <input type="text" id="cfgLocalRepo" placeholder="~/.dotfiles" />
+      </label>
+      <div class="modal-actions">
+        <button class="btn btn-primary" id="cfgSaveBtn">Save</button>
+        <button class="btn btn-ghost" id="cfgCancelBtn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
