@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.venv/
+venv/
+env/
+
+# SQLite databases (runtime data)
+backend/*.db
+*.db
+
+# Pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Node (if frontend tooling is added later)
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Docker
+.dockerignore
+
+# Logs
+*.log
+nohup.out
